@@ -1,0 +1,14 @@
+.\debug\DebugInFlash\usart_debug.o: user\usart_debug.c
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\stm32f10x_can.h
+.\debug\DebugInFlash\usart_debug.o: .\startup\stm32f10x.h
+.\debug\DebugInFlash\usart_debug.o: .\startup\core_cm3.h
+.\debug\DebugInFlash\usart_debug.o: C:\Keil\ARM\RV31\INC\stdint.h
+.\debug\DebugInFlash\usart_debug.o: .\startup\sysinit.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\stm32f10x_gpio.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\stm32f10x_rcc.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\stm32f10x_tim.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\stm32f10x_usart.h
+.\debug\DebugInFlash\usart_debug.o: .\driver\stm32lib\inc\misc.h
+.\debug\DebugInFlash\usart_debug.o: user\usart_debug.h
+.\debug\DebugInFlash\usart_debug.o: C:\Keil\ARM\RV31\INC\stdio.h

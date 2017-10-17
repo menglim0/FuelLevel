@@ -1,0 +1,17 @@
+.\debug\debuginflash\usart.o: user\usart.c
+.\debug\debuginflash\usart.o: .\driver\stm32lib.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\stm32f10x_can.h
+.\debug\debuginflash\usart.o: .\startup\stm32f10x.h
+.\debug\debuginflash\usart.o: .\startup\core_cm3.h
+.\debug\debuginflash\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\debuginflash\usart.o: .\startup\sysinit.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\stm32f10x_gpio.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\stm32f10x_rcc.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\stm32f10x_tim.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\stm32f10x_usart.h
+.\debug\debuginflash\usart.o: .\driver\stm32lib\inc\misc.h
+.\debug\debuginflash\usart.o: user\usually.h
+.\debug\debuginflash\usart.o: user\hardware.h
+.\debug\debuginflash\usart.o: user\usart.h
+.\debug\debuginflash\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\debug\debuginflash\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

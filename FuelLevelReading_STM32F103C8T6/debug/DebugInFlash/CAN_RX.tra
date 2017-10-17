@@ -1,0 +1,48 @@
+*** Creating Trace Output File '.\debug\DebugInFlash\CAN_RX.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\debug\debuginflash\startup.o"'
+### List of Objects: adding '".\debug\debuginflash\os_cpu_a.o"'
+### List of Objects: adding '".\debug\debuginflash\core_cm3.o"'
+### List of Objects: adding '".\debug\debuginflash\sysinit.o"'
+### List of Objects: adding '".\debug\debuginflash\misc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_rcc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_gpio.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_tim.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_spi.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_i2c.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_rtc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_usart.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_adc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_can.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_cec.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_crc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_dac.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_dma.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_exti.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_flash.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_fsmc.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_iwdg.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_pwr.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_sdio.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_bkp.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_wwdg.o"'
+### List of Objects: adding '".\debug\debuginflash\stm32f10x_dbgmcu.o"'
+### List of Objects: adding '".\debug\debuginflash\gpio.o"'
+### List of Objects: adding '".\debug\debuginflash\main.o"'
+### List of Objects: adding '".\debug\debuginflash\usart.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\debug\debuginflash\startup.o" ".\debug\debuginflash\os_cpu_a.o" ".\debug\debuginflash\core_cm3.o" ".\debug\debuginflash\sysinit.o" ".\debug\debuginflash\misc.o" ".\debug\debuginflash\stm32f10x_rcc.o" ".\debug\debuginflash\stm32f10x_gpio.o" ".\debug\debuginflash\stm32f10x_tim.o" ".\debug\debuginflash\stm32f10x_spi.o" ".\debug\debuginflash\stm32f10x_i2c.o" ".\debug\debuginflash\stm32f10x_rtc.o" ".\debug\debuginflash\stm32f10x_usart.o" ".\debug\debuginflash\stm32f10x_adc.o" ".\debug\debuginflash\stm32f10x_can.o" ".\debug\debuginflash\stm32f10x_cec.o" ".\debug\debuginflash\stm32f10x_crc.o" ".\debug\debuginflash\stm32f10x_dac.o" ".\debug\debuginflash\stm32f10x_dma.o" ".\debug\debuginflash\stm32f10x_exti.o" ".\debug\debuginflash\stm32f10x_flash.o" ".\debug\debuginflash\stm32f10x_fsmc.o" ".\debug\debuginflash\stm32f10x_iwdg.o" ".\debug\debuginflash\stm32f10x_pwr.o" ".\debug\debuginflash\stm32f10x_sdio.o" ".\debug\debuginflash\stm32f10x_bkp.o" ".\debug\debuginflash\stm32f10x_wwdg.o" ".\debug\debuginflash\stm32f10x_dbgmcu.o" ".\debug\debuginflash\gpio.o" ".\debug\debuginflash\main.o" ".\debug\debuginflash\usart.o" --strict --scatter ".\debug\DebugInFlash\CAN_RX.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\debug\List\CAN_RX.map" -o ".\debug\DebugInFlash\CAN_RX.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\debug\DebugInFlash\CAN_RX.axf'
+### ADS-LD Command File: '.\debug\DebugInFlash\CAN_RX.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\debug\DebugInFlash\CAN_RX.lnp', Handle=0x00000310
+### Writing '.lnp' file
+### ADS-LD Command file '.\debug\DebugInFlash\CAN_RX.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,130 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;*******************************************************
+                       *************************************************
+    2 00000000         ;                                               uC/OS-II
+                       
+    3 00000000         ;                                         The Real-Time 
+                       Kernel
+    4 00000000         ;
+    5 00000000         ;                                  (c) Copyright 1992-20
+                       06, GLR TECHNOLOGY
+    6 00000000         ;                                          All Rights Re
+                       served
+    7 00000000         ;
+    8 00000000         ;                                           ARM Cortex-M
+                       3 Port
+    9 00000000         ;
+   10 00000000         ; File      : OS_CPU_A.s
+   11 00000000         ; Version   : V2.52
+   12 00000000         ; By        : GLR TECHNOLOGY
+   13 00000000         ;
+   14 00000000         ; For       : ARMv7M Cortex-M3
+   15 00000000         ; Mode      : Thumb2
+   16 00000000         ; Toolchain : KEIL MDK
+   17 00000000         ;*******************************************************
+                       *************************************************
+   18 00000000         
+   19 00000000         ;*******************************************************
+                       *************************************************
+   20 00000000         ;                                           PUBLIC FUNCT
+                       IONS
+   21 00000000         ;*******************************************************
+                       *************************************************
+   22 00000000                 EXPORT           OS_CPU_SR_Save ; Functions decl
+                                                            ared in this file
+   23 00000000                 EXPORT           OS_CPU_SR_Restore
+   24 00000000         
+   25 00000000         ;*******************************************************
+                       *************************************************
+   26 00000000         ;                                      CODE GENERATION D
+                       IRECTIVES
+   27 00000000         ;*******************************************************
+                       *************************************************
+   28 00000000         
+   29 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+   30 00000000                 THUMB
+   31 00000000                 REQUIRE8
+   32 00000000                 PRESERVE8
+   33 00000000         
+   34 00000000         ;*******************************************************
+                       *************************************************
+   35 00000000         ;                                   CRITICAL SECTION MET
+                       HOD 3 FUNCTIONS
+   36 00000000         ;
+   37 00000000         ; Description: Disable/Enable interrupts by preserving t
+                       he state of interrupts.  Generally speaking you
+   38 00000000         ;              would store the state of the interrupt di
+                       sable flag in the local variable 'cpu_sr' and then
+   39 00000000         ;              disable interrupts.  'cpu_sr' is allocate
+                       d in all of uC/OS-II's functions that need to
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   40 00000000         ;              disable interrupts.  You would restore th
+                       e interrupt disable state by copying back 'cpu_sr'
+   41 00000000         ;              into the CPU's status register.
+   42 00000000         ;
+   43 00000000         ; Prototypes :     OS_CPU_SR  OS_CPU_SR_Save(void);
+   44 00000000         ;                  void       OS_CPU_SR_Restore(OS_CPU_S
+                       R cpu_sr);
+   45 00000000         ;*******************************************************
+                       *************************************************
+   46 00000000         
+   47 00000000         OS_CPU_SR_Save
+   48 00000000 F3EF 8010       MRS              R0, PRIMASK ; Set prio int mask
+                                                             to mask all (excep
+                                                            t faults)
+   49 00000004 B672            CPSID            I
+   50 00000006 4770            BX               LR
+   51 00000008         
+   52 00000008         OS_CPU_SR_Restore
+   53 00000008 F380 8810       MSR              PRIMASK, R0
+   54 0000000C 4770            BX               LR
+   55 0000000E         
+   56 0000000E                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\debug\debuginflash\os_cpu_a.d -o.\debug\debuginflash\os_cpu_a.o 
+-I.\startup -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_
+v5\ARM\INC\ST\STM32F10x --predefine="__UVISION_VERSION SETA 524" --list=.\debug
+\list\os_cpu_a.lst startup\os_cpu_a.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 29 in file startup\os_cpu_a.s
+   Uses
+      None
+Comment: .text unused
+OS_CPU_SR_Restore 00000008
+
+Symbol: OS_CPU_SR_Restore
+   Definitions
+      At line 52 in file startup\os_cpu_a.s
+   Uses
+      At line 23 in file startup\os_cpu_a.s
+Comment: OS_CPU_SR_Restore used once
+OS_CPU_SR_Save 00000000
+
+Symbol: OS_CPU_SR_Save
+   Definitions
+      At line 47 in file startup\os_cpu_a.s
+   Uses
+      At line 22 in file startup\os_cpu_a.s
+Comment: OS_CPU_SR_Save used once
+3 symbols
+334 symbols in table

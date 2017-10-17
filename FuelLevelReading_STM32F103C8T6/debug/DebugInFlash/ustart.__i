@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\startup -I.\driver -I.\driver\stm32lib\inc -I.\user -I.\driver\api\inc -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\ST\STM32F10x" -o ".\debug\DebugInFlash\ustart.o" --omf_browse ".\debug\DebugInFlash\ustart.crf" --depend ".\debug\DebugInFlash\ustart.d" "user\ustart.c"
