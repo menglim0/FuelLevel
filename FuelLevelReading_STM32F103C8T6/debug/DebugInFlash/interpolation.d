@@ -1,0 +1,13 @@
+.\debug\debuginflash\interpolation.o: user\interpolation.c
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\stm32f10x_can.h
+.\debug\debuginflash\interpolation.o: .\startup\stm32f10x.h
+.\debug\debuginflash\interpolation.o: .\startup\core_cm3.h
+.\debug\debuginflash\interpolation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\debuginflash\interpolation.o: .\startup\sysinit.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\stm32f10x_gpio.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\stm32f10x_rcc.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\stm32f10x_tim.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\stm32f10x_usart.h
+.\debug\debuginflash\interpolation.o: .\driver\stm32lib\inc\misc.h
+.\debug\debuginflash\interpolation.o: user\interpolation.h

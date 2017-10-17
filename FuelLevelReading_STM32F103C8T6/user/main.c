@@ -19,6 +19,8 @@
 #include "usually.h"
 #include "usart.h"
 
+#include "interpol.h"
+
 //变量定义
 const char menu[] =
    "\n\r"
@@ -56,6 +58,10 @@ u16 FuelLevel_Percent;
 unsigned int AD_value;
 unsigned int AD_value_group[2];
 u16 ADC_SimpleConvertValue[4];
+u8 Fuel_Percent;
+
+u16 FuelLevel_Reading_AD_InputValue[8];
+u16 FuelLevel_Reading_Percent_OutputValue[8];
 
 
 
@@ -209,6 +215,8 @@ int main(void)
 				//AD_ConvertFunction();
 		ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
 		ADC_SimpleConvertValue[1]=Get_Adc(ADC_Channel_7);
+		
+		Fuel_Percent=Interpol_Calculate(1,1,4,20,3);
 		FuelLevel_Percent =ADC_SimpleConvertValue[0];
 		CAN_tx_data();
 		

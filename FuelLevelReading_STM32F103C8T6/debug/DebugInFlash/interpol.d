@@ -1,0 +1,14 @@
+.\debug\debuginflash\interpol.o: interpol.c
+.\debug\debuginflash\interpol.o: interpol.h
+.\debug\debuginflash\interpol.o: .\startup\stm32f10x.h
+.\debug\debuginflash\interpol.o: .\startup\core_cm3.h
+.\debug\debuginflash\interpol.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\debuginflash\interpol.o: .\startup\sysinit.h
+.\debug\debuginflash\interpol.o: .\user\hardware.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\stm32f10x_can.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\stm32f10x_gpio.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\stm32f10x_rcc.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\stm32f10x_tim.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\stm32f10x_usart.h
+.\debug\debuginflash\interpol.o: .\driver\stm32lib\inc\misc.h

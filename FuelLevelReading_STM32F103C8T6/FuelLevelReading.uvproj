@@ -375,7 +375,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_LD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\startup;.\driver;.\driver\stm32lib\inc;.\user;.\driver\api\inc;.\driver\stm32lib\src;.\driver\stm32lib\inc</IncludePath>
+              <IncludePath>.\startup;.\driver;.\driver\stm32lib\inc;.\user;.\driver\api\inc;.\driver\stm32lib\src;.\driver\stm32lib\inc;..\FuelLevelReading_STM32F103C8T6</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -583,6 +583,11 @@
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>interpol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\interpol.c</FilePath>
             </File>
           </Files>
         </Group>

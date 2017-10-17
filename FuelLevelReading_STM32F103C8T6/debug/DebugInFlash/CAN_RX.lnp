@@ -29,6 +29,7 @@
 ".\debug\debuginflash\gpio.o"
 ".\debug\debuginflash\main.o"
 ".\debug\debuginflash\usart.o"
+".\debug\debuginflash\interpol.o"
 --strict --scatter ".\debug\DebugInFlash\CAN_RX.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
