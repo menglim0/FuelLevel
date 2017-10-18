@@ -58,10 +58,14 @@ u16 FuelLevel_Percent;
 unsigned int AD_value;
 unsigned int AD_value_group[2];
 u16 ADC_SimpleConvertValue[4];
-u8 Fuel_Percent;
+u16 IndexFilter;
 
-u16 FuelLevel_Reading_AD_InputValue[8];
-u16 FuelLevel_Reading_Percent_OutputValue[8];
+u16 ADC_ConvertValueFilter[16];
+u16 ADC_ConvertValueFilterFinal;
+u16 ADC_ConvertValueFilterTemp;
+u16 Fuel_Percent;
+
+
 
 
 
@@ -206,6 +210,7 @@ int main(void)
 
 	while(1)
 	{  
+		int i;
 		//GPIO_ResetBits(GPIOC, GPIO_Pin_13);	//PC13输出低电平，点亮LED3
 		//Delay(ADCData);
 	//	printf(dat);	
@@ -213,11 +218,29 @@ int main(void)
 		Delay(798);
 		
 				//AD_ConvertFunction();
-		ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
-		ADC_SimpleConvertValue[1]=Get_Adc(ADC_Channel_7);
 		
-		Fuel_Percent=Interpol_Calculate(1,1,4,20,3);
-		FuelLevel_Percent =ADC_SimpleConvertValue[0];
+		ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
+		//ADC_SimpleConvertValue[1]=Get_Adc(ADC_Channel_7);
+		
+		if(IndexFilter<=15)
+		{
+			
+			IndexFilter++;
+		}
+		else
+		{
+			IndexFilter=0;
+		}
+		ADC_ConvertValueFilter[IndexFilter]=ADC_SimpleConvertValue[0];
+		ADC_ConvertValueFilterTemp=0;
+		for(i=0;i<16;i++)
+		{
+			ADC_ConvertValueFilterTemp= ADC_ConvertValueFilterTemp+ADC_ConvertValueFilter[i];
+		}
+		ADC_ConvertValueFilterFinal = ADC_ConvertValueFilterTemp/16;
+			
+		Fuel_Percent=Interpol_FindPoint(ADC_ConvertValueFilterFinal);
+		FuelLevel_Percent =ADC_ConvertValueFilterFinal;
 		CAN_tx_data();
 		
 	}
@@ -277,10 +300,11 @@ int CAN_tx_data()
     TxMessage.RTR=CAN_RTR_DATA;
     TxMessage.IDE=CAN_ID_STD;
     TxMessage.DLC=8;
-    TxMessage.Data[0]=FuelLevel_Percent>>4;
-    TxMessage.Data[1]=(FuelLevel_Percent&0x00F)<<4;
-    TxMessage.Data[2]=0x00;
-		TxMessage.Data[3]=0x00;
+
+    TxMessage.Data[0]=Fuel_Percent;
+		TxMessage.Data[1]=0x00;
+	  TxMessage.Data[2]=FuelLevel_Percent>>4;
+    TxMessage.Data[3]=(FuelLevel_Percent&0x00F)<<4;
     TxMessage.Data[4]=0x00;
 		TxMessage.Data[5]=0x00;
     TxMessage.Data[6]=0x00;
