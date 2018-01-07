@@ -19,4 +19,5 @@
 .\debug\debuginflash\main.o: user\usart.h
 .\debug\debuginflash\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\debug\debuginflash\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\debug\debuginflash\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\debug\debuginflash\main.o: ..\FuelLevelReading_STM32F103C8T6\interpol.h

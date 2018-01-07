@@ -18,8 +18,10 @@
 #include "api.h" 
 #include "usually.h"
 #include "usart.h"
+#include "stdbool.h"
 
 #include "interpol.h"
+
 
 //变量定义
 const char menu[] =
@@ -62,8 +64,12 @@ u16 IndexFilter;
 
 u16 ADC_ConvertValueFilter[16];
 u16 ADC_ConvertValueFilterFinal;
+u16 ADC_ConvertValueFilterFinalarray[16];
 u16 ADC_ConvertValueFilterTemp;
 u16 Fuel_Percent;
+
+
+bool Fuel_Read_1ST=false;
 
 
 
@@ -207,7 +213,7 @@ int main(void)
 	printf(menu);					//输出字符串
   ADC_Configuration();
 	DMA_Configuration();
-
+	Delay(100);
 	while(1)
 	{  
 		int i;
@@ -222,25 +228,48 @@ int main(void)
 		ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
 		//ADC_SimpleConvertValue[1]=Get_Adc(ADC_Channel_7);
 		
-		if(IndexFilter<=15)
+		if(Fuel_Read_1ST==false)
 		{
-			
-			IndexFilter++;
+			for(i=0;i<16;i++)
+			{
+				ADC_ConvertValueFilter[i]=ADC_SimpleConvertValue[0];
+				ADC_ConvertValueFilterFinalarray[i]=ADC_SimpleConvertValue[0];
+			}
+			FuelLevel_Percent = ADC_SimpleConvertValue[0];
+			ADC_ConvertValueFilterFinal= ADC_SimpleConvertValue[0];
+			Fuel_Read_1ST = TRUE;
 		}
 		else
 		{
-			IndexFilter=0;
-		}
-		ADC_ConvertValueFilter[IndexFilter]=ADC_SimpleConvertValue[0];
-		ADC_ConvertValueFilterTemp=0;
-		for(i=0;i<16;i++)
-		{
-			ADC_ConvertValueFilterTemp= ADC_ConvertValueFilterTemp+ADC_ConvertValueFilter[i];
-		}
-		ADC_ConvertValueFilterFinal = ADC_ConvertValueFilterTemp/16;
+			if(IndexFilter<=15)
+			{
+				
+				IndexFilter++;
+			}
+			else
+			{
+				IndexFilter=0;
+			}
+			ADC_ConvertValueFilter[IndexFilter]=ADC_SimpleConvertValue[0];
+			ADC_ConvertValueFilterTemp=0;
+			for(i=0;i<16;i++)
+			{
+				ADC_ConvertValueFilterTemp= ADC_ConvertValueFilterTemp+ADC_ConvertValueFilter[i];
+			}
+			ADC_ConvertValueFilterTemp = ADC_ConvertValueFilterTemp/16;
+		  ADC_ConvertValueFilterFinalarray[IndexFilter]=ADC_ConvertValueFilterTemp ;
 			
-		Fuel_Percent=Interpol_FindPoint(ADC_ConvertValueFilterFinal);
-		FuelLevel_Percent =ADC_ConvertValueFilterFinal;
+			ADC_ConvertValueFilterTemp=0;
+			for(i=0;i<16;i++)
+			{
+				ADC_ConvertValueFilterTemp= ADC_ConvertValueFilterTemp+ADC_ConvertValueFilterFinalarray[i];
+			}
+			ADC_ConvertValueFilterFinal = ADC_ConvertValueFilterTemp/16;
+					
+		}
+		
+			Fuel_Percent=Interpol_FindPoint(ADC_ConvertValueFilterFinal);
+			FuelLevel_Percent =ADC_ConvertValueFilterFinal;
 		CAN_tx_data();
 		
 	}
@@ -296,19 +325,20 @@ int CAN_tx_data()
     uint8_t TransmitMailbox = 0;
 		u32 i;
    
-    TxMessage.StdId=0x223;
+    TxMessage.StdId=0x5DA;
     TxMessage.RTR=CAN_RTR_DATA;
     TxMessage.IDE=CAN_ID_STD;
     TxMessage.DLC=8;
 
     TxMessage.Data[0]=Fuel_Percent;
 		TxMessage.Data[1]=0x00;
-	  TxMessage.Data[2]=FuelLevel_Percent>>4;
-    TxMessage.Data[3]=(FuelLevel_Percent&0x00F)<<4;
-    TxMessage.Data[4]=0x00;
-		TxMessage.Data[5]=0x00;
-    TxMessage.Data[6]=0x00;
-		TxMessage.Data[7]=0x00;
+	  TxMessage.Data[2]=Get_FuelLevelFaule_State();
+	  TxMessage.Data[3]=FuelLevel_Percent>>4;
+    TxMessage.Data[4]=(FuelLevel_Percent&0x00F)<<4;
+    TxMessage.Data[5]=0x00;
+		TxMessage.Data[6]=0x00;
+    TxMessage.Data[7]=0x00;
+		
     
     TransmitMailbox = CAN_Transmit(CAN1, &TxMessage);
   i = 0;

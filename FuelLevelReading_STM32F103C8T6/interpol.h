@@ -8,5 +8,6 @@
 int Interpol_Calculate(int x1,int y1,int x2,int y2, int x);
 
 int Interpol_FindPoint(int x);
+char Get_FuelLevelFaule_State(void);
 
 #endif
