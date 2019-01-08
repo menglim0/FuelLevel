@@ -70,7 +70,7 @@ u16 Fuel_Percent;
 
 
 bool Fuel_Read_1ST=false;
-
+bool GPIO_Status=false;
 
 
 
@@ -222,10 +222,36 @@ int main(void)
 	//	printf(dat);	
 		//GPIO_SetBits(GPIOC, GPIO_Pin_13);	//PC13输出高电平，熄灭LED3
 		Delay(798);
+		if(GPIO_Status ==false)
+		{
+			GPIO_Status =true;
+		GPIO_SetBits(GPIOA,GPIO_Pin_0);
+		GPIO_SetBits(GPIOA,GPIO_Pin_1);
+		GPIO_SetBits(GPIOA,GPIO_Pin_2);
+		GPIO_SetBits(GPIOA,GPIO_Pin_3);
+		GPIO_SetBits(GPIOA,GPIO_Pin_4);
+		GPIO_SetBits(GPIOA,GPIO_Pin_5);
+		GPIO_SetBits(GPIOA,GPIO_Pin_6);
+		GPIO_SetBits(GPIOA,GPIO_Pin_7);
+		}
+		else
+		{
+				GPIO_Status =false;
+			GPIO_ResetBits(GPIOA,GPIO_Pin_0);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_1);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_2);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_3);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_4);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_6);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_7);
+			
+			
+		}
 		
 				//AD_ConvertFunction();
 		
-		ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
+		//ADC_SimpleConvertValue[0]=Get_Adc(ADC_Channel_6);
 		//ADC_SimpleConvertValue[1]=Get_Adc(ADC_Channel_7);
 		
 		if(Fuel_Read_1ST==false)

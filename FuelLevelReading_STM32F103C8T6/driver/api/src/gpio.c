@@ -37,9 +37,10 @@ void GPIOInit(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);				   //GPIO配置函数
 
 	//PC8-PC12配置为输入;KEY1-KEY5
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;		   //上拉输入
-	GPIO_Init(GPIOC, &GPIO_InitStructure);			       //GPIO配置函数  
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_OD;	   //开漏输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	   //50M时钟速度
+	GPIO_Init(GPIOA, &GPIO_InitStructure);			       //GPIO配置函数  
 
 	//PC13配置为输出;LED3
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;			   //选择第13端口
