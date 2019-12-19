@@ -30,7 +30,7 @@ const char menu[] =
    "|                      2012.5.15                        |\n\r"
    "|                技术支持QQ：406795003                  |\n\r"
    "+-------------------------------------------------------+\n\r";
-
+//The fisrts commint
 //函数申明
 void Init_LED(void);	
 void Init_NVIC(void);
